@@ -1,0 +1,15 @@
+{
+    "name": "amazon_webtests",
+    "version": "1.0.0",
+    "description": "Tests on Cypress on TypeScript using PO pattern",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/olpapina/amazon_webtests.git"
+    },
+    "devDependencies": {
+        "@types/jest": "^29.5.3",
+        "@types/mocha": "^10.0.1",
+        "cypress": "^12.17.4",
+        "typescript": "^5.1.6"
+    }
+}
