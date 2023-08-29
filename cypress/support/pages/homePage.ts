@@ -17,7 +17,7 @@ class HomePage {
     topMenuButton: string;
     topDropMenu: any;
     navigateMenu: string;
-
+    
     constructor() {
         this.locationPopUp = new LocationPopUp();
         this.topDropMenu = new TopDropMenu();

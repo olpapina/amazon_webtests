@@ -151,7 +151,12 @@ describe('Tests verify Gift Card Delivery according to location', () => {
     let expectedLocation: string = testData.possibleDelivery;
     let expectedTextMessage: string = testData.validationMessage;
     homePage.getLocationPopUp().clickNotChangeButton();
-    const selectlocationPage = homePage.clickActualDeliveryLocation();
+    let selectlocationPage = homePage.clickActualDeliveryLocation();
+    if (selectlocationPage.blockWindowIsDisplay) {
+      cy.reload();
+       selectlocationPage = homePage.clickActualDeliveryLocation();
+       homePage.clickActualDeliveryLocation();
+    } 
     selectlocationPage.enterZipCode(testData.zipCode);
     const continuePage = selectlocationPage.clickApplyButton();
     continuePage.clickContinueButton();
@@ -172,7 +177,12 @@ describe('Tests verify Gift Card Delivery according to location', () => {
   it('verify delivery possible Add to card and Buy now from US location', () => {
     let expectedLocation:string = testData.possibleDelivery;
     homePage.getLocationPopUp().clickNotChangeButton();
-    const selectlocationPage = homePage.clickActualDeliveryLocation();
+    let selectlocationPage = homePage.clickActualDeliveryLocation();
+    if (selectlocationPage.blockWindowIsDisplay) {
+      cy.reload();
+       selectlocationPage = homePage.clickActualDeliveryLocation();
+       homePage.clickActualDeliveryLocation();
+    } 
     selectlocationPage.enterZipCode(testData.zipCode);
     const continuePage = selectlocationPage.clickApplyButton();
     continuePage.clickContinueButton();

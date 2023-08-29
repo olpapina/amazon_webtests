@@ -5,12 +5,14 @@ export class SelectLocationPage {
     dropDownIcon: string;
     applyButton: string;
     popUp: string;
+    blockLocation: string;
 
     constructor() {
         this.enterZipCodeField = '#GLUXZipUpdateInput'
         this.dropDownIcon = '.a-icon-dropdown'
         this.applyButton = '#GLUXZipUpdate-announce'
         this.popUp = '.a-popover-inner'
+        this.blockLocation = '#GLUXAddressBlock'
     }
 
     enterZipCode(zipCode) {
@@ -24,5 +26,13 @@ export class SelectLocationPage {
 
     clickChooseLocation() {
         cy.get(this.popUp).find(this.dropDownIcon).click()
+    }
+
+    blockWindowIsDisplay() {
+        if (cy.get(this.enterZipCodeField).not('exist')) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
